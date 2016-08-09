@@ -1,50 +1,50 @@
 version: "2"
 services:
     rules1:
-        image: nibons/curler:1.0
+        build: .
         extra_hosts:
          - "kyrules.chfsinet.ky.gov:172.26.130.38"
     rules2:
-        image: nibons/curler:1.0
+        build: .
         extra_hosts:
          - "kyrules.chfsinet.ky.gov:172.26.130.40"
     rules3:
-        image: nibons/curler:1.0
+        build: .
         extra_hosts:
          - "kyrules.chfsinet.ky.gov:172.26.130.130"
     rules4:
-        image: nibons/curler:1.0
+        build: .
         extra_hosts:
          - "kyrules.chfsinet.ky.gov:172.26.130.135"
     rules5:
-        image: nibons/curler:1.0
+        build: .
         extra_hosts:
          - "kyrules.chfsinet.ky.gov:172.26.130.203"
     rules6:
-        image: nibons/curler:1.0
+        build: .
         extra_hosts:
          - "kyrules.chfsinet.ky.gov:172.26.131.166"
     rules7:
-        image: nibons/curler:1.0
+        build: .
         extra_hosts:
          - "kyrules.chfsinet.ky.gov:172.26.131.167"
     rules8:
-        image: nibons/curler:1.0
+        build: .
         extra_hosts:
          - "kyrules.chfsinet.ky.gov:172.26.131.169"
     rules9:
-        image: nibons/curler:1.0
+        build: .
         extra_hosts:
          - "kyrules.chfsinet.ky.gov:172.26.131.175"
     rules10:
-        image: nibons/curler:1.0
+        build: .
         extra_hosts:
          - "kyrules.chfsinet.ky.gov:172.26.131.176"
     rules11:
-        image: nibons/curler:1.0
+        build: .
         extra_hosts:
          - "kyrules.chfsinet.ky.gov:172.26.131.177"
     rules12:
-        image: nibons/curler:1.0
+        build: .
         extra_hosts:
          - "kyrules.chfsinet.ky.gov:172.26.131.174"
