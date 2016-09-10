@@ -39,7 +39,7 @@ $dockerMachineName = [guid]::NewGuid() | select-object -ExpandProperty Guid
     invoke-command -NoNewScope -ScriptBlock $([scriptblock]::Create($command)) | %{write-verbose $_}
 
     #enable connection in this session
-    write-verbose "Connecting to machine"
+    write-verbose "Connecting session to machine"
     docker-machine env $dockerMachineName | Invoke-Expression 
     #endregion
 
