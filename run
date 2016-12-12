@@ -1,4 +1,4 @@
-docker build -t nibons/curler:latest . \
+docker build -t chfs/init-edbc:latest . \
 && docker-compose rm -f \
 && docker-compose up \
 && docker-compose down
