@@ -1,0 +1,1 @@
+docker build -t chfs/init-edbc:uat3 .
