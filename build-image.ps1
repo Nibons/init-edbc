@@ -1,5 +1,5 @@
 docker build -t chfs/init-edbc:pilot .
-docer tag chfs/init-edbc:pilot chfs/init-edbc:latest
+docker tag chfs/init-edbc:pilot chfs/init-edbc:latest
 # SIG # Begin signature block
 # MIIL7gYJKoZIhvcNAQcCoIIL3zCCC9sCAQExCzAJBgUrDgMCGgUAMGkGCisGAQQB
 # gjcCAQSgWzBZMDQGCisGAQQBgjcCAR4wJgIDAQAABBAfzDtgWUsITrck0sYpfvNR
