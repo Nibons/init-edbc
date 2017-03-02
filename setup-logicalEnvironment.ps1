@@ -1,48 +1,38 @@
 [cmdletbinding()]
 Param(
-    [string]$logicalEnvironment
+    [string]$logicalEnvironment = 'perf'
 )
-#region setup docker-compose.yml
+import-module e:\scripts\get-servers.psm1
 $header = @"
 version: "2"
 services:
-
 "@
 $containerTemplate = @"
+
     rules{COUNTER}:
-        image: chfs/init-edbc
+        image: chfs/init-edbc:latest
+        container_name: {LOGICALENVIRONMENT}_Rules_{COUNTER}
+        environment:
+         - DNSHost={HOSTNAME}
         extra_hosts:
          - "{HOSTNAME}:{IPAddress}"
 "@
 
 $counter = 0
-[string]$containerSet = get-servers -LogicalEnvironment Conv | Where-Object function -eq rules | foreach-object {
+[string]$containerSet = get-servers -LogicalEnvironment $logicalEnvironment | Where-Object function -eq rules | foreach-object {
     $counter ++
-    $containerTemplate.Replace("{COUNTER}",$counter).Replace("{HOSTNAME}",$_.DNSHost).Replace("{IPAddress}",$_.IP)
-    $dnsHost = $_.DNSHost
+    $containerTemplate.Replace("{COUNTER}",$counter).Replace("{HOSTNAME}",$_.DNSHost).Replace("{IPAddress}",$_.IP).replace('{LOGICALENVIRONMENT}',$logicalEnvironment)
 }
 
 @"
 $header
 $containerSet
-"@ | out-file -FilePath "$psscriptroot\docker-compose.yml" -Encoding utf8 -Force
-#endregion
-
-#region setup Dockerfile
-[string]$Dockerfile_Template = @"
-FROM alpine:latest
-
-#RUN apt-get update && apt-get install -y curl
-RUN apk add --update curl
-
-CMD curl -k 'https://{DNSHost}/KY_EDBC_DRIVER_WCFEdbcService/KyHbeEdbcDriverService.svc?wsdl'>/dev/null 
-"@
-$Dockerfile_Template.replace("{DNSHost}",$dnsHost) | out-file -FilePath "$psscriptroot\Dockerfile" -Encoding utf8 -Force
+"@ | out-file -FilePath "$psscriptroot\docker-compose.yml" -Encoding unicode -Force
 # SIG # Begin signature block
 # MIIL7gYJKoZIhvcNAQcCoIIL3zCCC9sCAQExCzAJBgUrDgMCGgUAMGkGCisGAQQB
 # gjcCAQSgWzBZMDQGCisGAQQBgjcCAR4wJgIDAQAABBAfzDtgWUsITrck0sYpfvNR
-# AgEAAgEAAgEAAgEAAgEAMCEwCQYFKw4DAhoFAAQUZ0ZBasyRJZof8fz4s1QJDQ2A
-# MpagggkgMIID7jCCAtagAwIBAgIQeAt1QHFYYqJI3fLokHGDtzANBgkqhkiG9w0B
+# AgEAAgEAAgEAAgEAAgEAMCEwCQYFKw4DAhoFAAQU5cjO09gQgJANDmQM8dsg4VoU
+# X56gggkgMIID7jCCAtagAwIBAgIQeAt1QHFYYqJI3fLokHGDtzANBgkqhkiG9w0B
 # AQUFADB/MRMwEQYKCZImiZPyLGQBGRYDZ292MRIwEAYKCZImiZPyLGQBGRYCa3kx
 # EjAQBgoJkiaJk/IsZAEZFgJkczEUMBIGCgmSJomT8ixkARkWBGNoZnMxKjAoBgNV
 # BAMTIUNIRlMgUm9vdCBDZXJ0aWZpY2F0aW9uIEF1dGhvcml0eTAeFw0xMzAzMTQy
@@ -96,11 +86,11 @@ $Dockerfile_Template.replace("{DNSHost}",$dnsHost) | out-file -FilePath "$psscri
 # BAMTIUNIRlMgUm9vdCBDZXJ0aWZpY2F0aW9uIEF1dGhvcml0eQITFAAABME0ZQKh
 # ejFTUAAAAAAEwTAJBgUrDgMCGgUAoHgwGAYKKwYBBAGCNwIBDDEKMAigAoAAoQKA
 # ADAZBgkqhkiG9w0BCQMxDAYKKwYBBAGCNwIBBDAcBgorBgEEAYI3AgELMQ4wDAYK
-# KwYBBAGCNwIBFTAjBgkqhkiG9w0BCQQxFgQU1Rq6dZpirCKbyUXu6lQIh6LtsN8w
-# DQYJKoZIhvcNAQEBBQAEggEAkTH2DgBJGAxSVLD+Iq2N/YPoCZ5IeW/tb79gwuBR
-# FOX1fjCfN++XG+t1DCaeJC9CQUEP2eJJ2GjyFHPnakiLtd+qYY9Im/el+LfvpOs3
-# PSWD+37cDz4+476xerWghDKiazFcKoDt19cPzC8tl/dz2qPibO5kkptmW9EaTW9j
-# spZGwxkAj1A4EGPIIsvNEAeSb3pZUE9soi0avewYsVORfyuYqcD3rCTcAao1vTO2
-# K5F2z/MY4sui69b2UeLSDYbrXHWmh1XyCxZR0KuG1Z2BDPvKyVnTuR4x7hVklQuh
-# IPkB5a2HbWTzL9iTGTZp182v4pGmh/ixJocoRofakPzTvg==
+# KwYBBAGCNwIBFTAjBgkqhkiG9w0BCQQxFgQUSfNQFsVcgaFGYZ5j6HNNnst6G+Iw
+# DQYJKoZIhvcNAQEBBQAEggEAZnuAJdpjl1MlCwPtB0sVGHY3dfdLg871WRXBITOR
+# ybXa7RQhE/n0tFp0rbyuOnpMx4WTg3fFObVCGUqf6j7zcB3yuCz7Pi/f/su0200Q
+# +KJq7GClrP9K9Q0nMg4ZfmlhpG5PLwWM5idiYD4AOmIFCewcae7kPXcwridJ9Ipv
+# NN+3e3uTD2zEY7303joPHwOqN654O6PJGOz7QAiq5PK+/7dEwqqICwPo9V09rZsS
+# f2rdxULb7YOs9x4CMi9AqT5ouCgQrfWweNRVG0LGuo6krzjKZIXC8WLoyEgQi7Ep
+# s/QTSNwPu43wK/lqR/BdW52S1VRGJTp+Av1qdvNW7S3VdA==
 # SIG # End signature block
