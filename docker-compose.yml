@@ -1,58 +1,58 @@
-version: "2"
+﻿version: "2"
 services:
+
     rules1:
-        image: chfs/init-edbc:conv
+        image: chfs/init-edbc:latest
+        environment:
+         - DNSHost=conv.kyrules.chfsinet.ky.gov
         extra_hosts:
          - "conv.kyrules.chfsinet.ky.gov:172.26.131.150"
-    rules2:
-        image: chfs/init-edbc:conv
+     rules2:
+        image: chfs/init-edbc:latest
+        environment:
+         - DNSHost=conv.kyrules.chfsinet.ky.gov
         extra_hosts:
          - "conv.kyrules.chfsinet.ky.gov:172.26.131.19"
-    rules3:
-        image: chfs/init-edbc:conv
+     rules3:
+        image: chfs/init-edbc:latest
+        environment:
+         - DNSHost=conv.kyrules.chfsinet.ky.gov
         extra_hosts:
          - "conv.kyrules.chfsinet.ky.gov:172.26.131.151"
-    rules4:
-        image: chfs/init-edbc:conv
+     rules4:
+        image: chfs/init-edbc:latest
+        environment:
+         - DNSHost=conv.kyrules.chfsinet.ky.gov
         extra_hosts:
          - "conv.kyrules.chfsinet.ky.gov:172.26.131.152"
-    rules5:
-        image: chfs/init-edbc:conv
+     rules5:
+        image: chfs/init-edbc:latest
+        environment:
+         - DNSHost=conv.kyrules.chfsinet.ky.gov
         extra_hosts:
          - "conv.kyrules.chfsinet.ky.gov:172.26.131.103"
-    rules6:
-        image: chfs/init-edbc:conv
+     rules6:
+        image: chfs/init-edbc:latest
+        environment:
+         - DNSHost=conv.kyrules.chfsinet.ky.gov
         extra_hosts:
          - "conv.kyrules.chfsinet.ky.gov:172.26.131.104"
-    rules7:
-        image: chfs/init-edbc:conv
+     rules7:
+        image: chfs/init-edbc:latest
+        environment:
+         - DNSHost=conv.kyrules.chfsinet.ky.gov
         extra_hosts:
          - "conv.kyrules.chfsinet.ky.gov:172.26.130.214"
-    rules8:
-        image: chfs/init-edbc:conv
+     rules8:
+        image: chfs/init-edbc:latest
+        environment:
+         - DNSHost=conv.kyrules.chfsinet.ky.gov
         extra_hosts:
          - "conv.kyrules.chfsinet.ky.gov:172.26.130.215"
-    rules9:
-        image: chfs/init-edbc:conv
-        extra_hosts:
-         - "conv.kyrules.chfsinet.ky.gov:172.26.130.216"
-    rules10:
-        image: chfs/init-edbc:conv
-        extra_hosts:
-         - "conv.kyrules.chfsinet.ky.gov:172.26.130.201"
-    rules11:
-        image: chfs/init-edbc:conv
-        extra_hosts:
-         - "conv.kyrules.chfsinet.ky.gov:172.26.130.200"
-    rules12:
-        image: chfs/init-edbc:conv
-        extra_hosts:
-         - "conv.kyrules.chfsinet.ky.gov:172.26.130.199"
-    rules13:
-        image: chfs/init-edbc:conv
-        extra_hosts:
-         - "conv.kyrules.chfsinet.ky.gov:172.26.130.198"
-    rules14:
-        image: chfs/init-edbc:conv
+     rules9:
+        image: chfs/init-edbc:latest
+        environment:
+         - DNSHost=conv.kyrules.chfsinet.ky.gov
         extra_hosts:
          - "conv.kyrules.chfsinet.ky.gov:172.26.130.224"
+
