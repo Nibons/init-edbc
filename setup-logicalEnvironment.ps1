@@ -8,13 +8,13 @@ version: "2"
 services:
 "@
 $containerTemplate = @"
+
     rules{COUNTER}:
         image: chfs/init-edbc:latest
         environment:
          - DNSHost={HOSTNAME}
         extra_hosts:
          - "{HOSTNAME}:{IPAddress}"
-
 "@
 
 $counter = 0
@@ -26,12 +26,12 @@ $counter = 0
 @"
 $header
 $containerSet
-"@ | out-file -FilePath "$psscriptroot\docker-compose.yml" -Encoding utf8 -Force
+"@ | out-file -FilePath "$psscriptroot\docker-compose.yml" -Encoding unicode -Force
 # SIG # Begin signature block
 # MIIL7gYJKoZIhvcNAQcCoIIL3zCCC9sCAQExCzAJBgUrDgMCGgUAMGkGCisGAQQB
 # gjcCAQSgWzBZMDQGCisGAQQBgjcCAR4wJgIDAQAABBAfzDtgWUsITrck0sYpfvNR
-# AgEAAgEAAgEAAgEAAgEAMCEwCQYFKw4DAhoFAAQUxtGsSHYpyQggzaULRVmC0KmQ
-# lBSgggkgMIID7jCCAtagAwIBAgIQeAt1QHFYYqJI3fLokHGDtzANBgkqhkiG9w0B
+# AgEAAgEAAgEAAgEAAgEAMCEwCQYFKw4DAhoFAAQUpYfdIFeOkpgevoNBdwAq9ZUQ
+# LiugggkgMIID7jCCAtagAwIBAgIQeAt1QHFYYqJI3fLokHGDtzANBgkqhkiG9w0B
 # AQUFADB/MRMwEQYKCZImiZPyLGQBGRYDZ292MRIwEAYKCZImiZPyLGQBGRYCa3kx
 # EjAQBgoJkiaJk/IsZAEZFgJkczEUMBIGCgmSJomT8ixkARkWBGNoZnMxKjAoBgNV
 # BAMTIUNIRlMgUm9vdCBDZXJ0aWZpY2F0aW9uIEF1dGhvcml0eTAeFw0xMzAzMTQy
@@ -85,11 +85,11 @@ $containerSet
 # BAMTIUNIRlMgUm9vdCBDZXJ0aWZpY2F0aW9uIEF1dGhvcml0eQITFAAABME0ZQKh
 # ejFTUAAAAAAEwTAJBgUrDgMCGgUAoHgwGAYKKwYBBAGCNwIBDDEKMAigAoAAoQKA
 # ADAZBgkqhkiG9w0BCQMxDAYKKwYBBAGCNwIBBDAcBgorBgEEAYI3AgELMQ4wDAYK
-# KwYBBAGCNwIBFTAjBgkqhkiG9w0BCQQxFgQURhUtfCZ90OoJsHzLO+9Ge3JI86Iw
-# DQYJKoZIhvcNAQEBBQAEggEAb9/ZhYvo7lFuqF4T+73BgsZH1P9YiaSLMZGmxOXY
-# Q5jwuaXwrowBNLLy1V07NkurmGxErO7HVoYpcM2rL911JpWmU9jl3uk4VQZ6XB82
-# pv25fiHvgIlaV6MTf60G9QS/vx+YpL9qsY1AFbI1pN1gWK12wFoZ6vu6nuo1J//T
-# 5X3Jwg5PGt78S4YFVvmbU6L30UDRYO9SekDjb5e/Wq0kT/FNupSbsH60fMlbcMAv
-# pPWXz+Jsz3/l+kcUj+kXUfTTgsDImHQzMKGkPY8sj/gcWKuXIoAnpsjJ0fXkxFQN
-# FHEzVnGiOzkJGWw6QW8VDEkzrdbmW7dYOvV8fI+l/Fe2Ag==
+# KwYBBAGCNwIBFTAjBgkqhkiG9w0BCQQxFgQUp2Qf6hL6nT3yED3O9581/fcoyAMw
+# DQYJKoZIhvcNAQEBBQAEggEAN+FXtkyh5a6BD37FISOU8X2D2lD+FTHsjiRiSm/5
+# 27S4NhyO80O0M3lcNl2IhrVEKiMrgSPI/Qb0rWQ6Lzk/1y8//+722Mt/NqUO6tFG
+# vMlxftWeIOfeKfli6vSEj7JgZItLGH/PneqNM89OeYSlXFthj8tE+uWOKMdnneh0
+# abgCIb1aVVpUFpB7vm9HO/drJooF9GvIHfsnIvY6+85EBgiUdG05NbBu7053namd
+# fJWzITo3y4Ou4o40ry09dma2njkz8N4j41qYDjYGy9LUq0zz3pgTAAHc/90hIgNK
+# ujm3JklO5Y3pRy6Osa8hNcFfaslE/+2ERRWXS13VXuDjKA==
 # SIG # End signature block
