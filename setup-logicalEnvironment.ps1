@@ -5,6 +5,10 @@ Param(
 import-module e:\scripts\get-servers.psm1
 $header = @"
 version: "2"
+networks:
+    default:
+        external:
+            name: nat
 services:
 "@
 $containerTemplate = @"
