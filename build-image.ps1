@@ -1,1 +1,1 @@
-docker build -t chfs/init-edbc:conv .
+docker build -t chfs/init-edbc:latest .
