@@ -1,50 +1,26 @@
 version: "2"
 services:
     rules1:
-        image: chfs/init-edbc:prod
+        image: chfs/init-edbc:pilot
         extra_hosts:
-         - "kyrules.chfsinet.ky.gov:172.26.130.38"
+         - "pilot.kyrules.chfsinet.ky.gov:172.26.130.216"
     rules2:
-        image: chfs/init-edbc:prod
+        image: chfs/init-edbc:pilot
         extra_hosts:
-         - "kyrules.chfsinet.ky.gov:172.26.130.40"
+         - "pilot.kyrules.chfsinet.ky.gov:172.26.130.198"
     rules3:
-        image: chfs/init-edbc:prod
+        image: chfs/init-edbc:pilot
         extra_hosts:
-         - "kyrules.chfsinet.ky.gov:172.26.130.130"
+         - "pilot.kyrules.chfsinet.ky.gov:172.26.130.199"
     rules4:
-        image: chfs/init-edbc:prod
+        image: chfs/init-edbc:pilot
         extra_hosts:
-         - "kyrules.chfsinet.ky.gov:172.26.130.135"
+         - "pilot.kyrules.chfsinet.ky.gov:172.26.130.200"
     rules5:
-        image: chfs/init-edbc:prod
+        image: chfs/init-edbc:pilot
         extra_hosts:
-         - "kyrules.chfsinet.ky.gov:172.26.130.203"
+         - "pilot.kyrules.chfsinet.ky.gov:172.26.130.201"
     rules6:
-        image: chfs/init-edbc:prod
+        image: chfs/init-edbc:pilot
         extra_hosts:
-         - "kyrules.chfsinet.ky.gov:172.26.131.166"
-    rules7:
-        image: chfs/init-edbc:prod
-        extra_hosts:
-         - "kyrules.chfsinet.ky.gov:172.26.131.167"
-    rules8:
-        image: chfs/init-edbc:prod
-        extra_hosts:
-         - "kyrules.chfsinet.ky.gov:172.26.131.169"
-    rules9:
-        image: chfs/init-edbc:prod
-        extra_hosts:
-         - "kyrules.chfsinet.ky.gov:172.26.131.175"
-    rules10:
-        image: chfs/init-edbc:prod
-        extra_hosts:
-         - "kyrules.chfsinet.ky.gov:172.26.131.176"
-    rules11:
-        image: chfs/init-edbc:prod
-        extra_hosts:
-         - "kyrules.chfsinet.ky.gov:172.26.131.177"
-    rules12:
-        image: chfs/init-edbc:prod
-        extra_hosts:
-         - "kyrules.chfsinet.ky.gov:172.26.131.174"
+         - "pilot.kyrules.chfsinet.ky.gov:172.26.130.232"
