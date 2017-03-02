@@ -11,6 +11,7 @@ $containerTemplate = @"
 
     rules{COUNTER}:
         image: chfs/init-edbc:latest
+        container_name: {LOGICALENVIRONMENT}_Rules_{COUNTER}
         environment:
          - DNSHost={HOSTNAME}
         extra_hosts:
@@ -20,7 +21,7 @@ $containerTemplate = @"
 $counter = 0
 [string]$containerSet = get-servers -LogicalEnvironment $logicalEnvironment | Where-Object function -eq rules | foreach-object {
     $counter ++
-    $containerTemplate.Replace("{COUNTER}",$counter).Replace("{HOSTNAME}",$_.DNSHost).Replace("{IPAddress}",$_.IP)
+    $containerTemplate.Replace("{COUNTER}",$counter).Replace("{HOSTNAME}",$_.DNSHost).Replace("{IPAddress}",$_.IP).replace('{LOGICALENVIRONMENT}',$logicalEnvironment)
 }
 
 @"
@@ -30,8 +31,8 @@ $containerSet
 # SIG # Begin signature block
 # MIIL7gYJKoZIhvcNAQcCoIIL3zCCC9sCAQExCzAJBgUrDgMCGgUAMGkGCisGAQQB
 # gjcCAQSgWzBZMDQGCisGAQQBgjcCAR4wJgIDAQAABBAfzDtgWUsITrck0sYpfvNR
-# AgEAAgEAAgEAAgEAAgEAMCEwCQYFKw4DAhoFAAQUpYfdIFeOkpgevoNBdwAq9ZUQ
-# LiugggkgMIID7jCCAtagAwIBAgIQeAt1QHFYYqJI3fLokHGDtzANBgkqhkiG9w0B
+# AgEAAgEAAgEAAgEAAgEAMCEwCQYFKw4DAhoFAAQU5cjO09gQgJANDmQM8dsg4VoU
+# X56gggkgMIID7jCCAtagAwIBAgIQeAt1QHFYYqJI3fLokHGDtzANBgkqhkiG9w0B
 # AQUFADB/MRMwEQYKCZImiZPyLGQBGRYDZ292MRIwEAYKCZImiZPyLGQBGRYCa3kx
 # EjAQBgoJkiaJk/IsZAEZFgJkczEUMBIGCgmSJomT8ixkARkWBGNoZnMxKjAoBgNV
 # BAMTIUNIRlMgUm9vdCBDZXJ0aWZpY2F0aW9uIEF1dGhvcml0eTAeFw0xMzAzMTQy
@@ -85,11 +86,11 @@ $containerSet
 # BAMTIUNIRlMgUm9vdCBDZXJ0aWZpY2F0aW9uIEF1dGhvcml0eQITFAAABME0ZQKh
 # ejFTUAAAAAAEwTAJBgUrDgMCGgUAoHgwGAYKKwYBBAGCNwIBDDEKMAigAoAAoQKA
 # ADAZBgkqhkiG9w0BCQMxDAYKKwYBBAGCNwIBBDAcBgorBgEEAYI3AgELMQ4wDAYK
-# KwYBBAGCNwIBFTAjBgkqhkiG9w0BCQQxFgQUp2Qf6hL6nT3yED3O9581/fcoyAMw
-# DQYJKoZIhvcNAQEBBQAEggEAN+FXtkyh5a6BD37FISOU8X2D2lD+FTHsjiRiSm/5
-# 27S4NhyO80O0M3lcNl2IhrVEKiMrgSPI/Qb0rWQ6Lzk/1y8//+722Mt/NqUO6tFG
-# vMlxftWeIOfeKfli6vSEj7JgZItLGH/PneqNM89OeYSlXFthj8tE+uWOKMdnneh0
-# abgCIb1aVVpUFpB7vm9HO/drJooF9GvIHfsnIvY6+85EBgiUdG05NbBu7053namd
-# fJWzITo3y4Ou4o40ry09dma2njkz8N4j41qYDjYGy9LUq0zz3pgTAAHc/90hIgNK
-# ujm3JklO5Y3pRy6Osa8hNcFfaslE/+2ERRWXS13VXuDjKA==
+# KwYBBAGCNwIBFTAjBgkqhkiG9w0BCQQxFgQUSfNQFsVcgaFGYZ5j6HNNnst6G+Iw
+# DQYJKoZIhvcNAQEBBQAEggEAZnuAJdpjl1MlCwPtB0sVGHY3dfdLg871WRXBITOR
+# ybXa7RQhE/n0tFp0rbyuOnpMx4WTg3fFObVCGUqf6j7zcB3yuCz7Pi/f/su0200Q
+# +KJq7GClrP9K9Q0nMg4ZfmlhpG5PLwWM5idiYD4AOmIFCewcae7kPXcwridJ9Ipv
+# NN+3e3uTD2zEY7303joPHwOqN654O6PJGOz7QAiq5PK+/7dEwqqICwPo9V09rZsS
+# f2rdxULb7YOs9x4CMi9AqT5ouCgQrfWweNRVG0LGuo6krzjKZIXC8WLoyEgQi7Ep
+# s/QTSNwPu43wK/lqR/BdW52S1VRGJTp+Av1qdvNW7S3VdA==
 # SIG # End signature block
