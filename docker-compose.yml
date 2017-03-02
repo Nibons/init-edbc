@@ -1,6 +1,5 @@
 ﻿version: "2"
 services:
-
     rules1:
         image: chfs/init-edbc:latest
         environment:
@@ -55,4 +54,3 @@ services:
          - DNSHost=conv.kyrules.chfsinet.ky.gov
         extra_hosts:
          - "conv.kyrules.chfsinet.ky.gov:172.26.130.224"
-
