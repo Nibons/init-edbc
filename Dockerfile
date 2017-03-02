@@ -1,4 +1,4 @@
-FROM microsoft/powershell:ubuntu14.04
+FROM chfs/root
 
 SHELL ["powershell","-noprofile -command"]
 
