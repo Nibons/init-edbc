@@ -1,7 +1,8 @@
-FROM chfs/root
+FROM alpine:latest
 
-SHELL ["powershell","-noprofile -command"]
+#RUN apt-get update && apt-get install -y curl     #
+RUN apk add --update curl
 
 ENV DNSHost kyrules.chfsinet.ky.gov
 
-CMD powershell -command  invoke-webrequest -uri "https://$($env:DNSHost)/KY_EDBC_DRIVER_WCFEdbcService/KyHbeEdbcDriverService.svc?wsdl" -UseBasicParsing
+CMD curl -k https://$DNSHost/KY_EDBC_DRIVER_WCFEdbcService/KyHbeEdbcDriverService.svc?wsdl > /dev/null 
