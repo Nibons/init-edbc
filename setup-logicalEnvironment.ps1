@@ -6,7 +6,6 @@ import-module e:\scripts\get-servers.psm1
 $header = @"
 version: "2"
 services:
-
 "@
 $containerTemplate = @"
     rules{COUNTER}:
