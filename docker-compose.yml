@@ -1,6 +1,5 @@
 ﻿version: "2"
 services:
-
     rules1:
         image: chfs/init-edbc:latest
         environment:
