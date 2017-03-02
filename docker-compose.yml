@@ -1,26 +1,88 @@
-version: "2"
+﻿version: "2"
 services:
+
     rules1:
-        image: chfs/init-edbc:pilot
+        image: chfs/init-edbc:latest
+        environment:
+         - DNSHost=perf.kyrules.chfsinet.ky.gov
         extra_hosts:
-         - "pilot.kyrules.chfsinet.ky.gov:172.26.130.216"
-    rules2:
-        image: chfs/init-edbc:pilot
+         - "perf.kyrules.chfsinet.ky.gov:172.26.131.43"
+     rules2:
+        image: chfs/init-edbc:latest
+        environment:
+         - DNSHost=perf.kyrules.chfsinet.ky.gov
         extra_hosts:
-         - "pilot.kyrules.chfsinet.ky.gov:172.26.130.198"
-    rules3:
-        image: chfs/init-edbc:pilot
+         - "perf.kyrules.chfsinet.ky.gov:172.26.131.51"
+     rules3:
+        image: chfs/init-edbc:latest
+        environment:
+         - DNSHost=perf.kyrules.chfsinet.ky.gov
         extra_hosts:
-         - "pilot.kyrules.chfsinet.ky.gov:172.26.130.199"
-    rules4:
-        image: chfs/init-edbc:pilot
+         - "perf.kyrules.chfsinet.ky.gov:172.26.131.138"
+     rules4:
+        image: chfs/init-edbc:latest
+        environment:
+         - DNSHost=perf.kyrules.chfsinet.ky.gov
         extra_hosts:
-         - "pilot.kyrules.chfsinet.ky.gov:172.26.130.200"
-    rules5:
-        image: chfs/init-edbc:pilot
+         - "perf.kyrules.chfsinet.ky.gov:172.26.131.146"
+     rules5:
+        image: chfs/init-edbc:latest
+        environment:
+         - DNSHost=perf.kyrules.chfsinet.ky.gov
         extra_hosts:
-         - "pilot.kyrules.chfsinet.ky.gov:172.26.130.201"
-    rules6:
-        image: chfs/init-edbc:pilot
+         - "perf.kyrules.chfsinet.ky.gov:172.26.131.84"
+     rules6:
+        image: chfs/init-edbc:latest
+        environment:
+         - DNSHost=perf.kyrules.chfsinet.ky.gov
         extra_hosts:
-         - "pilot.kyrules.chfsinet.ky.gov:172.26.130.232"
+         - "perf.kyrules.chfsinet.ky.gov:172.26.131.85"
+     rules7:
+        image: chfs/init-edbc:latest
+        environment:
+         - DNSHost=perf.kyrules.chfsinet.ky.gov
+        extra_hosts:
+         - "perf.kyrules.chfsinet.ky.gov:172.26.130.225"
+     rules8:
+        image: chfs/init-edbc:latest
+        environment:
+         - DNSHost=perf.kyrules.chfsinet.ky.gov
+        extra_hosts:
+         - "perf.kyrules.chfsinet.ky.gov:172.26.130.226"
+     rules9:
+        image: chfs/init-edbc:latest
+        environment:
+         - DNSHost=perf.kyrules.chfsinet.ky.gov
+        extra_hosts:
+         - "perf.kyrules.chfsinet.ky.gov:172.26.130.227"
+     rules10:
+        image: chfs/init-edbc:latest
+        environment:
+         - DNSHost=perf.kyrules.chfsinet.ky.gov
+        extra_hosts:
+         - "perf.kyrules.chfsinet.ky.gov:172.26.130.228"
+     rules11:
+        image: chfs/init-edbc:latest
+        environment:
+         - DNSHost=perf.kyrules.chfsinet.ky.gov
+        extra_hosts:
+         - "perf.kyrules.chfsinet.ky.gov:172.26.130.223"
+     rules12:
+        image: chfs/init-edbc:latest
+        environment:
+         - DNSHost=perf.kyrules.chfsinet.ky.gov
+        extra_hosts:
+         - "perf.kyrules.chfsinet.ky.gov:172.26.130.222"
+     rules13:
+        image: chfs/init-edbc:latest
+        environment:
+         - DNSHost=perf.kyrules.chfsinet.ky.gov
+        extra_hosts:
+         - "perf.kyrules.chfsinet.ky.gov:172.26.130.221"
+     rules14:
+        image: chfs/init-edbc:latest
+        environment:
+         - DNSHost=perf.kyrules.chfsinet.ky.gov
+        extra_hosts:
+         - "perf.kyrules.chfsinet.ky.gov:172.26.130.220"
+
