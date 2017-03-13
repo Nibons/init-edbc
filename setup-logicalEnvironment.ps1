@@ -6,16 +6,14 @@ import-module e:\scripts\get-servers.psm1
 $header = @"
 version: "3"
 networks:
-    vSwitch_External:
-        external: true
+    default:
+        driver: overlay
 services:
 "@
 $containerTemplate = @"
 
     rules{COUNTER}:
         image: chfs/init-edbc:latest
-        networks:
-         - vSwitch_External
         environment:
          - DNSHost={HOSTNAME}
          - HostIP='{IPAddress}'
