@@ -4,24 +4,32 @@ Param(
 )
 import-module e:\scripts\get-servers.psm1
 $header = @"
-version: "2"
+version: "3"
+networks:
+    vSwitch_External:
+        external: true
 services:
 "@
 $containerTemplate = @"
 
     rules{COUNTER}:
         image: chfs/init-edbc:latest
-        container_name: {LOGICALENVIRONMENT}_Rules_{COUNTER}
+        networks:
+         - vSwitch_External
         environment:
          - DNSHost={HOSTNAME}
-        extra_hosts:
-         - "{HOSTNAME}:{IPAddress}"
+         - HostIP='{IPAddress}'
+         - FriendlyName='{FRIENDLYNAME}'
 "@
 
 $counter = 0
 [string]$containerSet = get-servers -LogicalEnvironment $logicalEnvironment | Where-Object function -eq rules | foreach-object {
     $counter ++
-    $containerTemplate.Replace("{COUNTER}",$counter).Replace("{HOSTNAME}",$_.DNSHost).Replace("{IPAddress}",$_.IP).replace('{LOGICALENVIRONMENT}',$logicalEnvironment)
+    $currentTemplate = $containerTemplate.Replace("{COUNTER}",$counter)
+        $currentTemplate = $currentTemplate.Replace("{HOSTNAME}",$_.DNSHost)
+        $currentTemplate = $currentTemplate.Replace("{IPAddress}",$_.IP)
+        $currentTemplate = $currentTemplate.replace('{LOGICALENVIRONMENT}',$logicalEnvironment)
+    $currentTemplate.Replace('{FRIENDLYNAME}', $_.Friendlyname)
 }
 
 @"
