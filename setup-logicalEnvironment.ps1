@@ -13,6 +13,7 @@ $containerTemplate = @"
         image: chfs/init-edbc:latest
         environment:
          - DNSHost={HOSTNAME}
+         - Servername={SERVERNAME}
         extra_hosts:
          - "{HOSTNAME}:{IPAddress}"
 "@
@@ -20,7 +21,7 @@ $containerTemplate = @"
 $counter = 0
 [string]$containerSet = get-servers -LogicalEnvironment $logicalEnvironment | Where-Object function -eq rules | foreach-object {
     $counter ++
-    $containerTemplate.Replace("{COUNTER}",$counter).Replace("{HOSTNAME}",$_.DNSHost).Replace("{IPAddress}",$_.IP)
+    $containerTemplate.Replace("{COUNTER}", $counter).Replace("{HOSTNAME}", $_.DNSHost).Replace("{IPAddress}", $_.IP).replace("{SERVERNAME}", $_.ServerName)
 }
 
 @"
